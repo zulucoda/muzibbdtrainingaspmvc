@@ -1,0 +1,88 @@
+﻿@model MvcApplication1.Areas.ContactDetails.Models.ContactDetails
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Management")){
+<fieldset>
+  <legend>Contact Details</legend>
+
+  @if (Model != null)
+  {
+    <h3 class="message-success">The form has been successfully submitted...</h3>
+  }
+
+  <ul>
+    <li>
+      <p>FirstName</p>
+      <p>@Html.TextBoxFor(m => m.FirstName)</p>
+    </li>
+    <li>
+      <p>LastName</p>
+      <p>@Html.TextBoxFor(m => m.LastName)</p>
+    </li>
+    <li>
+      <p>Email</p>
+      <p>@Html.TextBoxFor(m => m.Email)</p>
+    </li>
+    <li>
+      <p>HomePhone</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomePhone.CountryCode, new {@class="CountryCode", @placeholder="+27" }) @Html.TextBoxFor(m => m.HomePhone.AreaCode, new {@class="AreaCode", @placeholder="11" }) @Html.TextBoxFor(m => m.HomePhone.PhoneNumber)
+      </p>
+    </li>
+    <li>
+      <p>CellPhone</p>
+      <p>
+        @Html.TextBoxFor(m => m.CellPhone.CountryCode, new {@class="CountryCode", @placeholder="+27" }) @Html.TextBoxFor(m => m.CellPhone.AreaCode, new {@class="AreaCode" , @placeholder="11" }) @Html.TextBoxFor(m => m.CellPhone.PhoneNumber)
+      </p>
+    </li>
+    <li>
+      <p>Line1</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.Line1)
+      </p>
+    </li>
+    <li>
+      <p>Line2</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.Line2)
+      </p>
+    </li>
+    <li>
+      <p>Line3</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.Line3)
+      </p>
+    </li>
+    <li>
+      <p>City</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.City)
+      </p>
+    </li>
+    <li>
+      <p>Province</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.Province)
+      </p>
+    </li>
+    <li>
+      <p>Country</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.Country)
+      </p>
+    </li>
+    <li>
+      <p>PostalCode</p>
+      <p>
+        @Html.TextBoxFor(m => m.HomeAddress.PostalCode)
+      </p>
+    </li>
+    <li>
+      <input type="submit" value="Create" />
+    </li>
+  </ul>
+</fieldset>
+}
